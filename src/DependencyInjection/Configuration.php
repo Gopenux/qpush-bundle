@@ -32,8 +32,8 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode    = $treeBuilder->root('uecode_qpush');
+        $treeBuilder = new TreeBuilder('uecode_qpush');
+        $rootNode    = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -54,8 +54,8 @@ class Configuration implements ConfigurationInterface
 
     private function getProvidersNode()
     {
-        $treeBuilder    = new TreeBuilder();
-        $node           = $treeBuilder->root('providers');
+        $treeBuilder    = new TreeBuilder('providers');
+        $node           = $treeBuilder->getRootNode();
         $requirements   = [
             'aws' => [],
             'ironmq' => ['token', 'project_id'],
@@ -126,8 +126,8 @@ class Configuration implements ConfigurationInterface
 
     private function getQueuesNode()
     {
-        $treeBuilder = new TreeBuilder();
-        $node        = $treeBuilder->root('queues');
+        $treeBuilder = new TreeBuilder('queues');
+        $node        = $treeBuilder->getRootNode();
 
         $node
             ->requiresAtLeastOneElement()
@@ -213,8 +213,8 @@ class Configuration implements ConfigurationInterface
 
     private function getSubscribersNode()
     {
-        $treeBuilder = new TreeBuilder();
-        $node        = $treeBuilder->root('subscribers');
+        $treeBuilder = new TreeBuilder('subscribers');
+        $node        = $treeBuilder->getRootNode();
 
         $node
             ->prototype('array')
