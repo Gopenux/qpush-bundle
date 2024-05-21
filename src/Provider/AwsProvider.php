@@ -648,7 +648,7 @@ class AwsProvider extends AbstractProvider
         foreach ($messages as $message) {
 
             $messageEvent = new MessageEvent($this->name, $message);
-            $dispatcher->dispatch(Events::Message($this->name), $messageEvent);
+            $dispatcher->dispatch($messageEvent, Events::Message($this->name));
         }
     }
 
