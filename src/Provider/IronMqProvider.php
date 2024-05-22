@@ -298,8 +298,8 @@ class IronMqProvider extends AbstractProvider
         $messageEvent = new MessageEvent($this->name, $message);
 
         $dispatcher->dispatch(
-            Events::Message($this->name),
-            $messageEvent
+            $messageEvent,
+            Events::Message($this->name)
         );
     }
 
